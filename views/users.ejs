@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Search Users</title>
+  </head>
+  <body>
+      <div class="container">
+          <p class="display-4">Search Users</p>
+          <form>
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="searchBy">Search By...</label>
+                    <select id="searchBy" class="form-control" name="searchBy">
+                      <option selected>All</option>
+                      <option value="firstName">First Name</option>
+                      <option value="lastName">Last Name</option>
+                      <option value="email">Email</option>
+                      <option value="address">Address</option>
+                      <option value="phone">Phone</option>
+                      <option value="gender">Gender</option>
+                      <option value="age">Age</option>
+
+                    </select>
+                  </div>
+                  <div class="form-group col-md-8">
+                    <label for="word">Query</label>
+                    <input type="text" class="form-control" id="query" name="query" placeholder="Start typing.." onkeyup="searchUsers()">
+                  </div>
+              </div>
+          </form>
+          <table class="table table-hover table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% for(var i=0; i< usrs.length; i++) { %>
+              <tr>
+                <th scope="row"><%=i+1%></th>
+                <td><%=usrs[i].firstName%></td>
+                <td><%=usrs[i].lastName%></td>
+                <td><%=usrs[i].email%></td>
+                <td><%=usrs[i].address%></td>
+                <td><%=usrs[i].phone%></td>
+                <td><%=usrs[i].gender%></td>
+                <td><%=usrs[i].age%></td>
+              </tr>
+            <% } %>
+            </tbody>
+          </table>
+      </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        var searchUsers = () => {
+            var $text = $("#query").val();
+            alert($text);
+        }
+
+    </script>
+
+  </body>
+</html>
